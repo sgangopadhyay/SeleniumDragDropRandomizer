@@ -1,7 +1,7 @@
 """
 Name : SeleniumDragDropRandomizer
 Author : Suman Gangopadhyay
-Date : 2-mAY-2025
+Date : 2-May-2025
 Description : This program uses Selenium to automate random drag-and-drop actions, moving capital cities to their 
               corresponding countries on the demo page at http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html. 
               It shuffles the order of actions for each run and uses Explicit Waits for reliability.
@@ -48,9 +48,7 @@ class SumanDragDrop(Data):
     def __init__(self):
 
         # Set up the WebDriver (using Chrome in this example)
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-
-        
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))        
         self.actions = ActionChains(self.driver)
     
     def drag_and_drop(self):        
@@ -62,7 +60,6 @@ class SumanDragDrop(Data):
 
             # Navigate to the demo page
             self.driver.get(self.url)            
-            
 
             # Randomize the order of capital-country pairs
             capital_list = list(self.capital_to_country.items())
@@ -97,9 +94,8 @@ class SumanDragDrop(Data):
         except Exception as error:
             print(f"An unexpected error occurred: {str(error)}")
 
-        finally:
+        finally:                     
             # Close the browser
-            time.sleep(2)  # Wait to observe the result
             self.driver.quit()
 
 # Main function to run the script
